@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Free Tool</title>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- <meta http-equiv="refresh" content="30"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="menu.css">
+  <script src="https://kit.fontawesome.com/7d180b25b5.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+
+
+</head>
+
+
+<nav class="navbar navbar-expand-sm bg-primary sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="logo.png" alt="Logo" style="width: 30px;">
+    </a>
+
+    <button class="navbar-toggler" style="background-color: rgb(255, 255, 255);" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="Snapshot.html">Snapshot</a></li>
+        <li class="nav-item"><a class="nav-link" href="ImageConverter.html">Image Converter</a></li>
+        <li class="nav-item"><a class="nav-link" href="BoldText.html">Bold Text Generator</a></li>
+        <li class="nav-item"><a class="nav-link" href="QR_Code.html">Generate QR</a></li>
+      </ul>
+    </div>
+</nav>
+
+<div class="container" style="margin-top: 10px;">
+  <h1 style="text-align: center; color: #0d6efd; font-size: 3vw;">Video Snapshots Online</h1>
+    <div class="card">
+        <video id="video" controls poster="banner.jpg">
+            <source src="blank.mp4" type="video/mp4">
+          </video>
+
+          <br>
+          <div class="container" style="text-align: center;">
+            <h1 style="color: #0d6efd; font-size: 4vw;">How to use</h1>
+            <p style="font-size: 3vw;">It's never been simpler to transform videos into screen captures</p>
+          </div>
+
+          <div id="myDIV">
+            <div style="text-align: center;"><i class="fa-solid fa-cloud-arrow-up"></i>
+              <p style="font-weight: bold; font-size: 3vw;">Upload videos</p>
+              <p style="font-size: 2vw;">import videos from your devices</p>
+            </div>
+
+            <div style="text-align: center;"><i class="fa-solid fa-image"></i>
+              <p style="font-weight: bold; font-size: 2vw;">Take Snapshots</p>
+              <p style="font-size: 2vw;">Seek to the moment you want to Snapshot</p>
+            </div>
+
+
+            <div style="text-align: center;"><i class="fa-solid fa-download"></i>
+              <p style="font-weight: bold; font-size: 3vw;">Save Image</p>
+              <p style="font-size: 2vw;">Click Save to Download your Image</p>
+            </div>
+
+          </div>
+
+          <br>
+              <div class="d-grid" id="select-file">
+                <!-- <h1 style="font-size: 5vw; color: rgb(255, 0, 0);">Choose Your Video File!</h1> -->
+                <hr>
+                <input type="file" class="btn btn-primary" value="Input Button" id="videofile" accept=".mp4" onchange="loadVideoFile()">
+              </div>
+              <br>
+              <div id="videoInfo" class="card" style="color: rgb(0, 0, 255);">
+              </div>
+
+
+
+              <div class="d-grid gap-2">
+                <label id="videowidth">
+                <input class="invisible" id="videow"></label>
+                          <button type="button" id="snap" class="mx-auto bg-primary" style="font-weight: bolder; font-size: 3vw; color: rgb(255, 255, 255); width: 20%; border-radius: 25px;" onclick="snapPicture()" disabled>
+                            <span>Capture</span>
+                          </button>
+              </div>
+
+
+
+              <br>
+
+              <div class="card">
+                <canvas id="canvas" width="auto" height="auto"></canvas>
+            </div>
+            <br>
+            <div class="d-grid">
+                  <button type="button" id="save" class="mx-auto bg-primary" style="font-weight: bolder; font-size: 3vw; color: rgb(255, 255, 255); width: 20%; border-radius: 25px;" onclick="savePicture()" disabled>
+                  <span>Save</span>
+                </button>
+                <a href="" id="imagelink" style="display:none"></a>
+              </div>
+
+              <div class="container" style="margin-top: 50px;">
+                <h1 style="text-align: center; font-size: 4vw; color: #0d6efd;">How to Snapshot your video</h1>
+                <p style="font-size: 2vw; font-weight: bold; text-align: centers;">This tool let’s you quickly Snapshot any video online. It takes less than a minute to select a video, Seek the frame you want, and download the Snapshot!</p>
+                <br>
+                <div style="font-weight: bold; font-size: 2vw; margin-left: 50px;">
+                <p id="newcolor">1. Upload your video</p>
+                <p id="newcolor">2. Seek to the moment you want to Snapshot</p>
+                <p id="newcolor">3. Save your Image</p></div>
+                <p style="font-size: 2vw;">This free online Snapshot tool lets you screen capture high-resolution Snapshot images of any video you upload and save in JPG format with just one click. You will certainly get high quality Snapshots quickly so that you can then share them on social media networks with your friends.</p>
+              </div><br><br>
+
+              <hr>
+
+
+
+              
+<!-- ---------------------------
+     Footer Section
+---------------------------- -->
+<div class="container-fluid bg-light mt-5 border-top">
+  <footer class="py-5">
+    <div class="container">
+
+      <div class="row gy-4 align-items-center">
+
+        <!-- Links -->
+        <div class="col-6 col-md-3">
+          <h5 class="fw-bold text-primary">Links</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="PrivacyPolicy.html" class="nav-link p-0 text-secondary">Privacy & Policy</a></li>
+            <li class="nav-item mb-2"><a href="TermsConditions.html" class="nav-link p-0 text-secondary">Terms & Conditions</a></li>
+            <li class="nav-item mb-2"><a href="Disclaimer.html" class="nav-link p-0 text-secondary">Disclaimer</a></li>
+            <li class="nav-item mb-2"><a href="faq.html" class="nav-link p-0 text-secondary">FAQs</a></li>
+          </ul>
+        </div>
+          <div class="col-12 col-md-4 text-center">
+          <h5 class="fw-bold text-primary">Social media</h5>
+  <div class="social-grid">
+
+    <a href="https://facebook.com/towsifaktar/" target="_blank"
+       class="social-item social-facebook">
+      <i class="fa-brands fa-facebook"></i>
+    </a>
+
+    <a href="https://x.com/towsif_aktar" target="_blank"
+       class="social-item social-twitter">
+      <i class="fa-brands fa-x-twitter"></i>
+    </a>
+
+    <a href="https://www.linkedin.com/in/towsif-a-94bb2b78" target="_blank"
+       class="social-item social-linkedin">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+
+    <a href="https://github.com/towsif-aktar" target="_blank"
+       class="social-item social-github">
+      <i class="fa-brands fa-github"></i>
+    </a>
+
+    <a href="https://medium.com/@towsif-aktar" target="_blank"
+       class="social-item social-medium">
+      <i class="fa-brands fa-medium"></i>
+    </a>
+
+    <a href="https://www.instagram.com/mdtowsifaktar" target="_blank"
+       class="social-item social-instagram">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="https://www.tiktok.com/@towsif_aktar" target="_blank"
+       class="social-item social-tiktok">
+      <i class="fa-brands fa-tiktok"></i>
+    </a>
+
+    <a href="https://www.youtube.com/@towsif-aktar" target="_blank"
+       class="social-item social-youtube">
+      <i class="fa-brands fa-youtube"></i>
+    </a>
+
+    <a href="https://discord.gg/FRAsHE2VsM" target="_blank"
+       class="social-item social-discord">
+      <i class="fa-brands fa-discord"></i>
+    </a>
+
+  </div>
+</div>
+
+
+        <!-- Email (Right Side Column) -->
+        <div class="col-12 col-md-4 text-md-end text-center">
+          <p class="mb-0">
+            <strong>Email:</strong>
+           <a href="mailto:Towsif-Aktar.Web3@Ethermail.io"
+               class="text-decoration-none text-primary fw-semibold">
+               Send Message
+            </a>
+          </p>
+        </div>
+
+      </div>
+
+      <hr class="my-4">
+
+      <p class="bg-primary text-white fw-bold text-center mb-0">© TOWSIF AKTAR. All Rights Reserved.</p>
+
+    </div>
+  </footer>
+</div>
+<script src="snapshot.js"></script>
+
+</body>
+  
+
+
+
+
+</html>
